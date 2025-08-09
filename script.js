@@ -41,6 +41,7 @@ class Tree {
     return sortedArrayToBST();
   }
 
+  // Insert value
   insert(value) {
     function insertRec(currNode, value) {
       if (currNode === null) {
@@ -64,6 +65,7 @@ class Tree {
     this.root = insertRec(this.root, value);
   }
 
+  // Delete value
   deleteItem(value) {
     function deleteItemRec(currNode, value) {
       if (currNode === null) return null;
@@ -106,6 +108,7 @@ class Tree {
     this.root = deleteItemRec(this.root, value);
   }
 
+  // Find value
   find(value) {
     function findRec(currNode, value) {
       if (currNode === null) return null;
@@ -122,6 +125,7 @@ class Tree {
     return findRec(this.root, value);
   }
 
+  // BFS
   levelOrderForEach(callback) {
     if (typeof callback !== "function") {
       throw new Error("A callback function is required");
@@ -139,6 +143,7 @@ class Tree {
     }
   }
 
+  // DFS inorder
   inOrderForEach(callback) {
     if (typeof callback !== "function") {
       throw new Error("A callback function is required");
@@ -154,6 +159,7 @@ class Tree {
     traverse(this.root);
   }
 
+  // DFS preOrder
   preOrderForEach(callback) {
     if (typeof callback !== "function") {
       throw new Error("A callback function is required");
@@ -169,6 +175,7 @@ class Tree {
     traverse(this.root);
   }
 
+  // DFS postOrder
   postOrderForEach(callback) {
     if (typeof callback !== "function") {
       throw new Error("A callback function is required");
@@ -184,6 +191,7 @@ class Tree {
     traverse(this.root);
   }
 
+  // Find height of a node
   height(value) {
     function findNode(node, value) {
       if (node === null) return null;
@@ -208,6 +216,7 @@ class Tree {
     return nodeHeight(targetNode);
   }
 
+  // Find depth of a node
   depth(value) {
     function findNode(node, value, depth) {
       if (node === null) return null;
@@ -224,6 +233,7 @@ class Tree {
     return findNode(this.root, value, 0);
   }
 
+  // Check if tree is balanced
   isBalanced() {
     function checkBalance(node) {
       if (node === null) return 0;
@@ -242,6 +252,7 @@ class Tree {
     return checkBalance(this.root) !== -1;
   }
 
+  // Rebalancing the existing tree
   rebalance() {
     const values = [];
 
@@ -258,7 +269,7 @@ class Tree {
   }
 }
 
-// prettyPrint() to visualise binary tree
+// prettyPrint() to visualise binary tree - NOT used in code yet
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
     return;
